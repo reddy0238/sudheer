@@ -1,0 +1,9 @@
+{
+	"name": "de-etl",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "997fee39-f317-49f0-92e7-381a8515a764",
+		"tenantId": "726f108f-d16e-4011-bbea-b867608fe0fa"
+	}
+}
