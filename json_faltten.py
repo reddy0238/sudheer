@@ -1,3 +1,22 @@
+///
+In Snowflake Snowpark (Python 3.11) I have a DataFrame whose column value is either a VARIANT or a JSON-string. I want a single function
+
+python
+Copy
+Edit
+def flatten_json_snowpark(df: DataFrame, json_col: str) -> DataFrame
+that in one pass:
+
+Parses json_col into a VARIANT (if it isn’t one already).
+
+Recursively unwraps every OBJECT into <parent>_<child> columns.
+
+Flattens every ARRAY (using Snowpark’s flatten() table function) so elements become individual rows.
+
+Repeats until no nested OBJECT or ARRAY remains.
+
+The result should be a DataFrame of only primitive columns—one per leaf JSON field—plus whatever other original columns you passed in. Please provide the simplest working Snowpark Python code.
+///
 from snowflake.snowpark.functions import (
     col, parse_json, flatten as sp_flatten, object_keys
 )
